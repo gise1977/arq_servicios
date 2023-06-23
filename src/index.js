@@ -11,7 +11,7 @@ app.listen(3000);
 console.log("server funcionando en el puerto", 3000);
 
 app.get ("/alumnos",(req,res) => {
-    base.query("SELECT nombre_completo FROM bda_alumnos.notas", function (error,result){
+    base.query("SELECT * FROM bda_alumnos.notas", function (error,result){
         res.send(result)
     })
 });

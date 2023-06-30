@@ -1,4 +1,4 @@
-class Alumnos{
+class Alumno{
     constructor (id_alumnos,nombre_completo,nota1,nota2,nota3){
         this.idAlumnos = id_alumnos;
         this.NombreCompleto = nombre_completo;
@@ -29,21 +29,20 @@ class Alumnos{
         var NotaFinal = nota1+nota2+nota3
         return NotaFinal;
     }
-    getAprobado(NotaFinal){
+    getCondicion(NotaFinal){
         if (NotaFinal >=7){
             return "APROBADO"
         }       
-    }
-    getFinal(NotaFinal){
+        
         if (NotaFinal >=4 || NotaFinal <= 6){
             return " EXAMEN FINAL"
         }
-    }
-    getDesaprobado(NotaFinal){
+    
+    
         if (NotaFinal <4){
             return "DESAPROBADO"
         } 
     }
 }
 
-export default Alumnos;
+export default Alumno;

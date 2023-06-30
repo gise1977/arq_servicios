@@ -13,7 +13,8 @@ app.listen(3000);
 console.log("server funcionando en el puerto", 3000);
 
  app.get ("/alumnos",async (req,res) => { 
-    const alumnoMapping = new AlumnosMapping();
+    //desde la linea 16 a la 28 va en el DTo
+     const alumnoMapping = new AlumnosMapping();
     try{
         const alumnosBase = await new Promise((resolve,reject) =>{
             base.query("SELECT * FROM bda_alumnos.notas", function (error,result){
@@ -25,8 +26,10 @@ console.log("server funcionando en el puerto", 3000);
                  }
          })
         })
+        //la 30 va en el 30  
         const alumnosMap = alumnosBase.map(dato =>alumnoMapping.convertAlumnos(dato));
-        console.log(alumnosMap.get(1));
+       // la linea 32 va en el service y arreglar la nota final,maximo 10
+        console.log(alumnosMap[0].getNotaFinal());
         res.send(alumnosMap);
     } catch(error){
       res.status(500).send("falla el servidor");

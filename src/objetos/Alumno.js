@@ -26,7 +26,7 @@ class Alumno{
         return this.nota3;
     }
     getNotaFinal(){
-        var NotaFinal = nota1+nota2+nota3
+        var NotaFinal = (this.Nota1+this.Nota2+this.Nota3)/3
         return NotaFinal;
     }
     getCondicion(NotaFinal){

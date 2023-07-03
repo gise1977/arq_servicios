@@ -1,5 +1,5 @@
 import mysql from "mysql";
-import AlumnosMapping from "../mapping/AlumnosMapping.js";
+import AlumnosMapping from "../mapping/AlumnoMapping.js";
 
 class AlumnosDTO {
     connection = mysql.createConnection({
@@ -12,7 +12,7 @@ class AlumnosDTO {
         const alumnoMapping = new AlumnosMapping();
         try {
             const results = await new Promise((resolve, reject) => {
-              this.connection.query("SELECT * FROM bda_alumnos.alumno;", function (error, results) {
+              this.connection.query("SELECT * FROM bda_alumnos.notas;", function (error, results) {
                 if (error) {
                   console.error(error);
                   reject(error);

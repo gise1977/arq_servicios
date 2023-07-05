@@ -7,5 +7,6 @@ class AlumnosMapping {
             baseAlumno.nota1,baseAlumno.nota2,baseAlumno.nota3);
         return alumno;
     }
+    
 }
 export default AlumnosMapping;

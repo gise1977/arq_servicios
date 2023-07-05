@@ -1,4 +1,5 @@
 import AlumnosDTO from "../DTO/AlumnosDTO.js";
+import AlumnosMapping from "../mapping/AlumnoMapping.js";
 
 class AlumnoServicio{
     async getAlumno(){
@@ -12,7 +13,7 @@ class AlumnoServicio{
             var condicion = element.getCondicion(notaFinal);
             console.log(element);
             var alumnoelemento = {
-                idalumno : element.idAlumnos,
+                id_alumnos : element.idAlumnos,
                 nombre_completo : element.NombreCompleto,
                 nota1 : element.Nota1,
                 nota2: element.Nota2,
@@ -29,5 +30,38 @@ class AlumnoServicio{
         }
 
     }
+    postAlumno(alumno) {
+      var validacion_final = this.validarNotas(alumno.nota1,alumno.nota2,alumno.nota3);
+        if (validacion_final == false){
+            return "La validacion de las notas fallo";
+        }
+        if (alumno.nombre_completo.length < 50){
+            return "Nombre y apellido demasiado largo";
+        }
+
+
+        try {
+            const alumnosMapping = new AlumnosMapping();
+            const alumnosDTO = new AlumnosDTO();
+            alumnosDTO.postAlumno(alumno);
+
+            return "OK";
+        } catch (error) {
+            return error;
+        }
+    }
+    validarNotas(nota1,nota2,nota3){
+        if (nota1 < 1 || nota1 > 10){
+            return false;
+        }
+        if (nota2 < 1  || nota2 > 10){
+            return false;
+        }
+        if (nota3 < 1  || nota3 > 10){
+            return false;
+        }
+            return true;
+    }
+    
 }
-export default AlumnoServicio
+export default AlumnoServicio;

@@ -1,6 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import AlumnoServicio from "./servicio/AlumnoServicio.js";
+
 const base = mysql.createConnection({
     host :"127.0.0.1",
     user : "root",
@@ -8,6 +9,7 @@ const base = mysql.createConnection({
 })
 
 const app = express();
+
 app.listen(3000);
 console.log("server funcionando en el puerto", 3000);
 
@@ -19,4 +21,15 @@ app.get ("/alumnos",async (req,res) => {
     } catch (error) {
     res.status(500).send("falla el servidor");     
     }
-         })
+         });
+
+app.post ("/alumnos", (req, res) => {
+    try {
+        const alumnoServicio = new AlumnoServicio ();
+        const baseAlumnos = alumnoServicio.postAlumno(req.body);  
+        res.status(200).send("Se guardo exitosamente");      
+        }
+     catch (error) {
+     res.status(500).send("Internal Server Error");    
+    }
+     });

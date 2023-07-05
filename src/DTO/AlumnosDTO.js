@@ -28,11 +28,11 @@ class AlumnosDTO {
             return error;
         }
     }
-    async postAlumnos(Alumnos) {
+    async postAlumnos(alumnoSave) {
       try {
         const result = await new Promise((resolve, reject) => {
-          this.connection.query(`INSERT INTO bda_alumnos.Alumnos (id_alumnos,nombre_completo,nota1,nota2,nota3) VALUES 
-          (${Alumnos.idAlumnos}, '${Alumnos.NombreCompleto}', ${Alumnos.Nota1}, '${Alumnos.Nota2}','${Alumnos.Nota3}');`,
+          this.connection.query(`INSERT INTO bda_alumnos.Alumnos (nombre_completo,nota1,nota2,nota3) VALUES 
+          ('${alumnoSave.NombreCompleto}', ${alumnoSave.Nota1}, '${alumnoSave.Nota2}','${alumnoSave.Nota3}');`,
            function (error, result){
             if (error) {
               console.error(error);

@@ -27,7 +27,7 @@ class Alumno{
     }
     getNotaFinal(){
         var NotaFinal = (this.Nota1+this.Nota2+this.Nota3)/3
-        return NotaFinal;
+        return Math.ceil(NotaFinal);
     }
     getCondicion(NotaFinal){
         if (NotaFinal >=7){

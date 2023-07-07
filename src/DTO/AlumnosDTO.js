@@ -29,7 +29,6 @@ class AlumnosDTO {
         }
     }
     async postAlumnos(alumnoSave) {
-      console.log(alumnoSave);
       try {
         const result = await new Promise((resolve, reject) => {
           console.log(alumnoSave);

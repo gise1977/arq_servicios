@@ -32,7 +32,7 @@ app.post ("/alumnos", (req, res) => {
           case "Notas_Fallo":
             res.status(403).send({message: "el rango de las notas es de 1 a 10."});
             break;
-          case "todo_ok":
+          case "OK":
             res.status(200).send({message: "Se guardo con exito."});
             break;
           case "NombreCompleto_Fallo":

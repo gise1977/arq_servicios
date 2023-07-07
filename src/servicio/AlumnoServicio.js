@@ -43,9 +43,9 @@ class AlumnoServicio{
             const alumnosMapping = new AlumnosMapping();
             const alumnoguardado = alumnosMapping.convertAlumnoSave(alumno)
             const alumnosDTO = new AlumnosDTO();
-            alumnosDTO.postAlumno(alumnoguardado);
+            alumnosDTO.postAlumnos(alumnoguardado);
             
-            return "todo_ok";
+            return "OK";
         
         } catch (error) {
             return error;
